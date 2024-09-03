@@ -34,10 +34,30 @@ buttonElem.addEventListener('click',() => {
     
   }
   */
-
-  
-    
-    
-  
   
 })
+
+/*
+const navElement = document.querySelector(".header");
+  console.log(navElement);
+  window.addEventListener('scroll',() =>{
+    if(window.scrollY > 0){ navElement.style.display ="none"
+      }else{
+        navElement.style.display = "flex"
+      }
+  
+  });
+  */
+
+const navElement = document.querySelector(".header");
+var prevScrollPos = window.scrollY;
+
+window.onscroll = function() {
+  var currentScrollPos = window.scrollY;
+  if(prevScrollPos > currentScrollPos) {
+    navElement.style.display = 'none';
+  }else{
+    navElement.style.display = 'initial';
+  }
+};
+
