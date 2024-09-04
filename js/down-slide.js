@@ -1,25 +1,28 @@
-const roadContent = document.querySelector('.answer');
-roadContent.hidden = true;
 const buttonElem = document.querySelector('.js-button');
+const roadContent = document.querySelector('.answer');
+
+
+function showElemButton() {
+roadContent.hidden = true;
 const arrow = document.querySelector('.arrow');
 //const hideButton = document.querySelector('.js-hide-button')
 //hideButton.hidden = true;
-
 
 buttonElem.addEventListener('click',() => {
   if(roadContent.hidden){
     roadContent.hidden = false;
     arrow.hidden = true;
-    buttonElem.innerHTML="HIDE COMPLETE ROAP MAP"
-    buttonElem.hidden = false;
-    $('.answer').slideDown(2000);
+    buttonElem.hidden = true;
+    createButton();
 
+   //slide contents
+    $('.answer').slideDown(2000);
     arrow.hidden = true;
-    console.log(roadContent)
 
   }else{
     roadContent.hidden = true;
     arrow.hidden = false;
+    
 
   }
   
@@ -36,6 +39,38 @@ buttonElem.addEventListener('click',() => {
   */
   
 })
+}
+
+showElemButton();
+
+//Append a button
+function createButton() {
+  const hideElem = document.querySelector('.new-button-container');
+  console.log(hideElem)
+
+  hideButton = document.createElement('button')
+  hideButton.className = "new-button";
+  hideButton.textContent = "HIDE COMPLETE ROAD MAP";
+  hideElem.appendChild(hideButton);
+
+  const newButton = document.querySelector('.new-button');
+  newButton.addEventListener('click',() => {
+    console.log('hi')
+    console.log(roadContent.hidden)
+    if(roadContent.hidden === false){
+    roadContent.hidden = true;
+    newButton.hidden = true;
+    buttonElem.hidden = false;}else{
+      return
+    }
+
+  });
+
+  
+  
+}
+
+
 
 /*
 const navElement = document.querySelector(".header");
@@ -60,4 +95,10 @@ window.onscroll = function() {
     navElement.style.display = 'initial';
   }
 };
+
+
+
+
+
+
 
